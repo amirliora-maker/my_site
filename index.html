@@ -1,133 +1,1170 @@
-<!--
-קובץ התחלתי שנוצר על בסיס הקובץ שלך: /mnt/data/personal_brand_site (15).html
-הקובץ שנמצא בספריית השיחה: /mnt/data/personal_brand_site (15).html. fileciteturn0file0
-
-איך להשתמש בקובץ זה:
-1) הורד/י את הקובץ מה-canvas (או העתק/י את התוכן) לשם מקומי בשם index.html
-2) כדי לארח חינמי ומשתלם: מומלץ GitHub Pages (הוראות קצרות בסוף הקובץ).
-3) כל טקסט, תמונה או צבע – מסומנים עם תגיות/הערות "EDIT ME" בתוך הקובץ.
-
----
-פירוט: הקובץ הזה הוא גרסה מקוצרת, RTL, נוחה לעריכה של אתר תדמית. יש בה מקום ל: לוגו, כותרת, אודות, שירותים, המלצות ויצירת קשר.
--->
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>שם העסק - דף בית</title>
-  <style>
-    :root{
-      --bg:#fff;
-      --text:#222;
-      --accent:#c59b2a; /* EDIT ME - change main accent color */
-      --maxw:900px;
-    }
-    html,body{height:100%;}
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo .mark{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#f0dca3);display:flex;align-items:center;justify-content:center;font-weight:700}
-    nav a{margin-left:12px;text-decoration:none;color:var(--text);font-weight:600}
-    .hero{padding:40px 0;text-align:center}
-    .hero h1{font-size:1.8rem;margin-bottom:8px}
-    .hero p{color:#555;margin-bottom:14px}
-    section{padding:28px 0;border-top:1px solid #eee}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .card{padding:18px;border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-    footer{padding:24px 0;text-align:center;color:#666}
-    /* RTL small adjustments */
-    input,textarea,select,button{font-family:inherit}
-    .btn{padding:10px 16px;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ליאורה עמיר - מומחית לפיתוח אישי וחינוך</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --gold: #d4af37;
+            --light-gold: #f4e4bc;
+            --white: #ffffff;
+            --text-light: #e8e8e8;
+            --text-dark: #2c2c2c;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: #fafafa;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* Logo Styles */
+        .main-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Rubik', sans-serif;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .logo-icon::after {
+            content: '✦';
+            font-size: 1.5em;
+            color: var(--primary);
+            position: absolute;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-name {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.8em;
+            color: var(--light-gold);
+            letter-spacing: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 0.5; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-logo {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .hero-content .tagline {
+            font-size: 1.1em;
+            color: var(--light-gold);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        .scroll-indicator::after {
+            content: '⌄';
+            font-size: 2em;
+            color: var(--gold);
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 40px rgba(0,0,0,0.15);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 1.05em;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        section h2 {
+            font-size: 2.8em;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        /* About Section */
+        .about-section {
+            background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .about-text {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .about-text p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            height: 350px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-highlight {
+            background: var(--primary);
+            color: var(--white);
+            padding: 35px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .about-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+        }
+        
+        .about-highlight h3 {
+            font-size: 1.7em;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+        
+        .about-highlight p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: var(--gold);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.95em;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+        
+        /* Inspiration Images Section */
+        .inspiration-section {
+            background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 80px 0;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .inspiration-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 300px;
+        }
+        
+        .inspiration-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        .inspiration-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .inspiration-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 26, 46, 0.9), transparent);
+            padding: 25px;
+            color: white;
+        }
+        
+        .inspiration-overlay h4 {
+            font-size: 1.3em;
+            margin-bottom: 6px;
+            color: var(--gold);
+        }
+        
+        .inspiration-overlay p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .services-section h2 {
+            color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 35px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-name {
+            font-size: 0.9em;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        .service-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+            font-size: 0.98em;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card li {
+            padding: 8px 0 8px 28px;
+            color: var(--text-light);
+            position: relative;
+            opacity: 0.95;
+            font-size: 0.95em;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--gold) 0%, #c9a22e 100%);
+            color: var(--primary);
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5em;
+            color: var(--gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.2em;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-service {
+            font-size: 0.9em;
+            color: var(--gold);
+            font-weight: 500;
+        }
+        
+        .testimonial-text {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.98em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-stars {
+            margin-top: 20px;
+            color: var(--gold);
+            font-size: 1.2em;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+        }
+        
+        .contact-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.1);
+        }
+        
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-intro h3 {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .contact-intro p {
+            font-size: 1.15em;
+            color: #666;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-family: 'Heebo', sans-serif;
+            transition: all 0.3s;
+            background: #fafafa;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--white);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+        }
+        
+        .contact-form textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(26, 26, 46, 0.3);
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(26, 26, 46, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-tagline {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 30px auto;
+            opacity: 0.5;
+        }
+        
+        .footer-copyright {
+            font-size: 0.95em;
+            opacity: 0.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .testimonials-grid,
+            .inspiration-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2em;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            section h2 {
+                font-size: 2.5em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-wrapper {
+                padding: 40px 30px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
 
-    @media (max-width:640px){.hero h1{font-size:1.4rem}}
-  </style>
+            .logo-name {
+                font-size: 1.4em;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <div class="mark">✦</div>
-        <div>
-          <div style="font-weight:700">ליאורה עמיר</div>
-          <div style="font-size:0.85rem;color:#666">השראה • צמיחה • מצוינות</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#about">אודות</a>
-        <a href="#services">שירותים</a>
-        <a href="#contact">יצירת קשר</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <h1><!-- EDIT ME: כותרת ראשית -->מלווה מקצועית לפיתוח אישי ולחינוך</h1>
-        <p><!-- EDIT ME: שורת תיאור קצרה -->מלווה אותך בדרך לצמיחה, חיבור ומצוינות</p>
-        <p><button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">צור קשר</button></p>
-      </section>
-
-      <section id="about">
-        <h2>אודות</h2>
-        <div class="card">
-          <!-- EDIT ME: החלף את הטקסט כאן בתיאור קצר עלייך -->
-          <p>אני מלווה אנשים ומוסדות בתהליכים של שינוי וצמיחה. ניסיון ניהולי והדרכתי הממלא את התכנים בכל מפגש.</p>
-        </div>
-      </section>
-
-      <section id="services">
-        <h2>השירותים שלי</h2>
-        <div class="grid">
-          <div class="card">
-            <h3><!-- EDIT ME: שם השירות -->תכנית חינוכית לבתי ספר</h3>
-            <p><!-- EDIT ME: תקציר השירות -->תכנית מעשית לעבודה משותפת בין צוות, הורים ותלמידים.</p>
-          </div>
-
-          <div class="card">
-            <h3><!-- EDIT ME -->קורס מעצים</h3>
-            <p><!-- EDIT ME: אם תרצי להפנות לקהל ספציפי, כתבי כאן טקסט נייטרלי -->מסע מעצים ליצירת איזון וביטחון.</p>
-          </div>
-
-          <div class="card">
-            <h3><!-- EDIT ME -->ליווי אישי</h3>
-            <p><!-- EDIT ME: תמצית -->ליווי מותאם אישית לשינוי עמוק ומתמשך.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2>יצירת קשר</h2>
-        <div class="card">
-          <form onsubmit="event.preventDefault();alert('תודה — ההודעה נשלחה (דמו)');this.reset()">
-            <div style="display:grid;gap:8px">
-              <input placeholder="שם מלא" required>
-              <input type="email" placeholder="דוא" required>
-              <textarea placeholder="הודעה" rows="5" required></textarea>
-              <div style="display:flex;gap:8px;justify-content:flex-start">
-                <button class="btn" type="submit">שלח</button>
-              </div>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="main-logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">
+                        <span class="logo-name">ליאורה עמיר</span>
+                        <span class="logo-subtitle">השראה • צמיחה • מצוינות</span>
+                    </div>
+                </div>
             </div>
-          </form>
+            <p class="subtitle">מובילה מנוסה | מלווה מקצועית | משפיעה חינוכית</p>
+            <p class="tagline">מלווה אותך למימוש הפוטנציאל האמיתי שלך</p>
         </div>
-      </section>
-
-    </main>
-
+        <div class="scroll-indicator"></div>
+    </div>
+    
+    <nav id="nav">
+        <ul>
+            <li><a href="#about">אודות</a></li>
+            <li><a href="#inspiration">השראה</a></li>
+            <li><a href="#services">השירותים שלי</a></li>
+            <li><a href="#testimonials">המלצות</a></li>
+            <li><a href="#contact">יצירת קשר</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>מי אני</h2>
+            <div class="about-content">
+                <div class="about-text-wrapper">
+                    <div class="about-text">
+                        <p>במשך שנים רבות עמדתי בראש ארגונים טכנולוגיים מתקדמים, שם ניהלתי צוותים גלובליים ופרויקטים מורכבים בתחומי ההצפנה והבנקאות הדיגיטלית. כסמנכ"לית, למדתי שההצלחה האמיתית מתחילה מבפנים.</p>
+                        
+                        <p>לפני כשנה בחרתי לעשות את הצעד המשמעותי ביותר בחיי המקצועיים - להעביר את הניסיון, הידע והתובנות שצברתי למי שבאמת זקוק להם. היום אני מקדישה את עצמי למה שמניע אותי בכל סיב - לעזור לאנשים לצמוח, לפרוח, ולממש את הגדולה שטמונה בהם.</p>
+                    </div>
+                    
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80" alt="אישה מעצימה">
+                    </div>
+                </div>
+                
+                <div class="about-highlight">
+                    <h3>המסע שלי</h3>
+                    <p>מהובלת ארגונים טכנולוגיים להובלת שינוי חברתי. מניהול פרויקטים בהיקפים של מיליונים לליווי אישי שמשנה חיים. מהחלטות עסקיות קריטיות ליצירת תכניות חינוכיות שמשפיעות על דור שלם.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">שנות ניהול</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">מלווים</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="inspiration" class="inspiration-section">
+        <div class="container">
+            <h2>השראה</h2>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80" alt="צמיחה">
+                    <div class="inspiration-overlay">
+                        <h4>צמיחה</h4>
+                        <p>כל מסע מתחיל בצעד אחד קטן. הצמיחה שלך מתחילה כאן.</p>
+                    </div>
+                </div>
+                <div class="inspiration-item">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" alt="חינוך">
+                    <div class="inspiration-overlay">
+                        <h4>חינוך</h4>
+                        <p>חינוך אמיתי הוא על חיבור, לא רק על ידע.</p>
+                    </div>
+                </div>
+                <div class="inspiration-item">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80" alt="שמחה">
+                    <div class="inspiration-overlay">
+                        <h4>שמחה</h4>
+                        <p>השמחה האמיתית מתחילה כשאנחנו מחוברים לעצמנו.</p>
+                    </div>
+                </div>
+                <div class="inspiration-item">
+                    <img src="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?w=800&q=80" alt="אור">
+                    <div class="inspiration-overlay">
+                        <h4>אור</h4>
+                        <p>האור שאת מחפשת כבר נמצא בתוכך. בואי נגלה אותו יחד.</p>
+                    </div>
+                </div>
+                <div class="inspiration-item">
+                    <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=80" alt="המסע">
+                    <div class="inspiration-overlay">
+                        <h4>המסע</h4>
+                        <p>כל דרך מתחילה בהחלטה אחת אמיצה.</p>
+                    </div>
+                </div>
+                <div class="inspiration-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="פריחה">
+                    <div class="inspiration-overlay">
+                        <h4>פריחה</h4>
+                        <p>כשפותחים את הלב, העולם כולו נפתח איתך.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>השירותים שלי</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="ילדים בכיתה">
+                    </div>
+                    <span class="service-name">ראויים לאור</span>
+                    <h3>תכנית חינוכית לבתי ספר</h3>
+                    <p>תכנית חדשנית ומקיפה המשלבת מורים, הורים ותלמידים במסע משותף של צמיחה, חיבור ומצוינות חינוכית.</p>
+                    <ul>
+                        <li>בניית תרבות בית ספרית חיובית ומעצימה</li>
+                        <li>חיזוק הקשר והשיתוף פעולה בין הבית לבית הספר</li>
+                        <li>פיתוח כישורים רגשיים, חברתיים ולימודיים</li>
+                        <li>כלים מעשיים וישימים למורים והורים</li>
+                    </ul>
+                    <button class="cta-button" onclick="scrollToContact()">מעוניינים? צרו קשר</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=80" alt="נשים בשיחה">
+                    </div>
+                    <span class="service-name">ראויה לטוב</span>
+                    <h3>קורס לנשים</h3>
+                    <p>מסע מעצים ומעמיק ליצירת אורח חיים מייטיב ומאוזן - להרגיש טוב עם עצמך ועם הסובבים אותך באמת.</p>
+                    <ul>
+                        <li>פיתוח ביטחון עצמי אותנטי ועמוק</li>
+                        <li>יצירת הרגלים מייטיבים ובני קיימא</li>
+                        <li>שיפור איכות מערכות היחסים בחיים</li>
+                        <li>איזון נכון בין התפקידים השונים</li>
+                    </ul>
+                    <button class="cta-button" onclick="scrollToContact()">רוצה להצטרף? בואי נדבר</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="אישה בשמחה">
+                    </div>
+                    <span class="service-name">ליווי אישי</span>
+                    <h3>ליווי אחד על אחד</h3>
+                    <p>ליווי אישי מעמיק ומותאם במיוחד עבורך - להתפתחות אישית, זוגית והורית שמביאה לשינוי אמיתי.</p>
+                    <ul>
+                        <li>תהליך מותאם באופן אישי לצרכים הייחודיים שלך</li>
+                        <li>כלים מעשיים, מוכחים וישימים מיידית</li>
+                        <li>תמיכה רציפה, מקצועית ומחויבת</li>
+                        <li>שינוי עמוק, אמיתי ומתמשך בחיים</li>
+                    </ul>
+                    <button class="cta-button" onclick="scrollToContact()">בואו נתחיל את המסע</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2>מה אומרים עליי</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">ר</div>
+                        <div class="testimonial-info">
+                            <h4>רונית כהן</h4>
+                            <span class="testimonial-service">ראויים לאור</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">התכנית של ליאורה שינתה לגמרי את האווירה בבית הספר שלנו. ההורים, המורים והילדים עובדים יחד בצורה שלא ראינו מעולם. התוצאות מדהימות - ילדים מאושרים יותר, ציונים משתפרים, והקשר בין הבית לבית הספר חזק פי כמה.</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">מ</div>
+                        <div class="testimonial-info">
+                            <h4>מיכל לוי</h4>
+                            <span class="testimonial-service">ראויה לטוב</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">הקורס הזה שינה את החיים שלי. ליאורה לימדה אותי לא רק לאהוב את עצמי, אלא גם איך ליצור חיים שבאמת מתאימים לי. אני מרגישה יותר בטוחה, יותר מאוזנת, והמערכות יחסים שלי השתפרו בצורה מדהימה. תודה ענקית!</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">ד</div>
+                        <div class="testimonial-info">
+                            <h4>דנה ושי אברהם</h4>
+                            <span class="testimonial-service">ליווי אישי</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">הגענו לליאורה כשהנישואין שלנו היו על סף משבר. הליווי שלה היה מדויק, עמוק ומלא אמפתיה. היא נתנה לנו כלים שעזרו לנו לתקשר מחדש ולהבין אחד את השני. היום אנחנו זוג אחר לגמרי - מחוברים, מאוהבים ומאושרים.</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">י</div>
+                        <div class="testimonial-info">
+                            <h4>יעל גולדשטין</h4>
+                            <span class="testimonial-service">ראויים לאור</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">כמורה בכירה, ראיתי הרבה תכניות חינוכיות, אבל אף אחת לא באה קרוב לרמה של ליאורה. היא מביאה איתה ניסיון אמיתי מעולם העסקים, והכלים שהיא נותנת הם פרקטיים ויעילים. הילדים והמשפחות משתנים לנגד עינינו.</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">ש</div>
+                        <div class="testimonial-info">
+                            <h4>שרה מזרחי</h4>
+                            <span class="testimonial-service">ראויה לטוב</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">הייתי סקפטית בהתחלה, אבל ליאורה הפתיעה אותי לחלוטין. היא לא רק מלמדת תיאוריה - היא נותנת כלים מעשיים שעובדים בחיים האמיתיים. הביטחון העצמי שלי עלה פי כמה, ואני סוף סוף מרגישה שאני חיה את החיים שאני רוצה.</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">א</div>
+                        <div class="testimonial-info">
+                            <h4>אילנה ברק</h4>
+                            <span class="testimonial-service">ליווי אישי</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">הליווי ההורי של ליאורה הציל את הקשר שלי עם הבת המתבגרת שלי. היא עזרה לי להבין מה באמת קורה, ונתנה לי כלים לתקשר בצורה שבתי מסוגלת לשמוע. היום יש לנו קשר הדוק ומלא אהבה. אני ממליצה בחום!</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>בואו נתחיל</h2>
+            <div class="contact-wrapper">
+                <div class="contact-intro">
+                    <h3>מוזמנים ליצור קשר</h3>
+                    <p>שיחת היכרות ראשונה ללא התחייבות - בואו נבין ביחד איך אני יכולה לעזור לכם</p>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <input type="text" placeholder="שם מלא" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="כתובת אימייל" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="מספר טלפון">
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">איזה שירות מעניין אותך?</option>
+                            <option value="rauyim-laor">ראויים לאור - תכנית חינוכית לבתי ספר</option>
+                            <option value="rauya-latov">ראויה לטוב - קורס לנשים</option>
+                            <option value="personal">ליווי אישי אחד על אחד</option>
+                            <option value="general">פשוט רוצה לשמוע עוד</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="ספרו לי קצת על עצמכם - מה מעניין אתכם? מה הביא אתכם לכאן?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">שלחו הודעה</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <footer>
-      <div style="font-size:0.95rem">© <!-- EDIT ME: שנה/שם עסק -->2025 • כל הזכויות שמורות</div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-wrapper">
+                    <div class="main-logo">
+                        <div class="logo-icon"></div>
+                        <div class="logo-text">
+                            <span class="logo-name">ליאורה עמיר</span>
+                            <span class="logo-subtitle">השראה • צמיחה • מצוינות</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="footer-tagline">מלווה אותך למימוש הפוטנציאל האמיתי שלך</p>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">&copy; 2024 כל הזכויות שמורות</p>
+            </div>
+        </div>
     </footer>
-
-    <!-- הוראות מהירות ל-Hosting ב-GitHub Pages (קצר):
-      1) צור/התחבר ל-GitHub -> New repository -> שם (public)
-      2) שמור/י קובץ זה בשם index.html והעלה ל-root של הריפו
-      3) ב-Settings -> Pages -> Source: branch main / folder: root -> Save
-      4) הקישור יופיע כ- https://yourusername.github.io/reponame
-
-      טיפ לעריכה בהמשך: פתיחה ב-Visual Studio Code או כל עורך טקסט. חפש/תחליף את התגיות "<!-- EDIT ME" כדי למצוא בקלות מה לשנות.
-    -->
-
-  </div>
+    
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('תודה רבה על פנייתך! אחזור אליך בהקדם האפשרי.');
+            event.target.reset();
+        }
+        
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.service-card, .testimonial-card, .inspiration-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
